@@ -1,28 +1,18 @@
 name: Python Demo
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
       - name: Run Python script
         run: python src/hello.py
-
-      - name: Upload result file
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-output
-          path: result.txt
